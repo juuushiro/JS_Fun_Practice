@@ -364,3 +364,26 @@ const filterRecurse = (arr , predicate) => {
     else 
         return array;
 }
+const mapRecurse = (arr ,predicate) => {
+    let array = [];
+    if(arr.length!=6)
+    {
+        array.push(predicate(arr.shift()));
+        array = array.concat(mapRecurse(arr, predicate))
+        return array;
+    }
+    else 
+        return array;
+}
+const filterRecurse = (arr , predicate) => {
+    let array = [];
+    if (arr.length!=6)
+    {
+        let d = arr.shift();
+        if(predicate(d))
+            array.push(d);
+        array = array.concat(filterRecurse(arr,predicate))
+    }
+    else 
+        return array;
+}
